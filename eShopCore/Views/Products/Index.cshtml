@@ -1,0 +1,133 @@
+﻿@model IEnumerable<eShopCore.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Create","Products")'">Create New</button>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Description Short
+            </th>
+            <th>
+                Description Long
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Image
+                @*@Html.DisplayNameFor(model => model.ImageSource)*@
+            </th>
+            <th>
+                Manufacturer
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: products">
+        @*@foreach (var item in Model) {*@
+        <tr>
+            <td data-bind="text: title">
+                @*@Html.DisplayFor(modelItem => item.Title)*@
+            </td>
+            <td data-bind="text: descriptionShort">
+                @*@Html.DisplayFor(modelItem => item.DescriptionShort)*@
+            </td>
+            <td data-bind="text: descriptionLong">
+                @*@Html.DisplayFor(modelItem => item.DescriptionLong)*@
+            </td>
+            <td data-bind="text: category">
+                @*@Html.DisplayFor(modelItem => item.Category)*@
+            </td>
+            <td data-bind="text: formatCurrency(price())">
+                @*@Html.DisplayFor(modelItem => item.Price)*@
+                @*€*@
+            </td>
+            <td>
+                <img class="img-thumbnail" data-bind="attr: {src: imageSource, alt: imgText}" />
+                @*<img src="@item.ImageSource" class="detailImage" />*@
+                @*@Html.DisplayFor(modelItem => item.ImageSource)*@
+            </td>
+            <td data-bind="text: manufacturer">
+                @*@Html.DisplayFor(modelItem => item.Manufacturer)*@
+            </td>
+            <td>
+                <a data-bind="attr: { 'href': '@Url.Action("Edit", "Products")/' + ID() }" class="cssClass"> Edit  </a> |
+                <a data-bind="attr: { 'href': '@Url.Action("Details", "Products")/' + ID() }" class="cssClass"> Details  </a> |
+                <a data-bind="attr: { 'href': '@Url.Action("Delete", "Products")/' + ID() }" class="cssClass"> Delete </a>
+                @*<a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>*@
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="modal fade" id="alterModal" tabindex="-1" role="dialog" aria-labelledby="alterModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="alterModalLabel">Last Altered/Created</h5>
+                <button type="button" style="border: 0px; border-radius: 5px" class="close" data-dismiss="modal" data-target="#alterModal" aria-label="Close" data-bind="click: alterModalToggle">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div data-bind="with: showcasedProduct">
+                    <div class="row">
+                        <h5 data-bind="text: title"></h5>
+                        <label class="text-success">Description Short: </label>
+                        <p data-bind="text: descriptionShort"></p>
+                        <label class="text-success">Description Long: </label>
+                        <p data-bind="text: descriptionLong"></p>
+                        <label class="text-success">Category: </label>
+                        <p data-bind="text: category"></p>
+                        <label class="text-success">Price: </label>
+                        <p data-bind="text: formatCurrency(price())"></p>
+                        <label class="text-success">Manufacturer: </label>
+                        <p data-bind="text: manufacturer"></p>
+                        <label class="text-success">Image: </label>
+                        <img class="img-thumbnail .img-fluid" style="width: 50%" data-bind="attr: {src: imageSource, alt: imgText}" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" data-target="#alterModal" data-bind="click: alterModalToggle">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        var myArray = JSON.parse('@Html.Raw(Json.Serialize(Model))');
+        var connection = new signalR.HubConnectionBuilder().withUrl('/productHub').build();
+        this.vm = new generalViewModel(myArray, connection);
+        ko.applyBindings(this.vm);
+        connection.start().then(function() {
+            console.log('connected');
+        }).catch(function(err) {
+            return console.error(err.toString());
+        });
+
+        connection.on("addedItem", function(product) {
+            vm.addProduct(product);
+        });
+
+        connection.on("deletedItem", function(product) {
+            vm.removeProduct(product);
+        });
+    </script>
+}

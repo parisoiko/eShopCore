@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Your Cart";
+}
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">e-Shop</a>
+    </div>
+</nav>
+<div class="d-flex justify-content-center">
+    <div class="card m-3">
+        <div class="card-header">
+            <h5 class="modal-title" id="cardModalLabel">Your Cart</h5>
+        </div>
+        <div class="card-body" data-bind="foreach: products">
+            <div class="row pt-2">
+                <div class="col-sm-5 mt-2">
+                    <h5 data-bind="text: title"></h5>
+                </div>
+                <div class="col-sm-2 mb-sm-0 mb-2 offset-2" data-bind="visible: inCart()">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-secondary" data-bind="click: removeQuantity">-</button>
+                        <input type="text" id="amount" data-bind="value: quantity" />
+                        <button type="button" class="btn btn-secondary" data-bind="click: addQuantity">+</button>
+                    </div>
+                </div>
+                <div class="col-sm-3 mb-sm-0 mb-2">
+                    <button type="button" class="btn btn-secondary" data-bind="text: formatCurrency(totalPrice()), enable: false"></button>
+                </div>
+                <div class="col-5" data-bind="text: descriptionShort"></div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center pb-4"><h4 data-bind="visible: products().length == 0">Your Cart Is Empty</h4></div>
+        <div class="card-footer">
+            <div class="row mt-2">
+                <div class="col-12 col-xl-2 col-md-4 col-sm-5 offset-xl-7 offset-md-5 offset-sm-4 offset-0 mb-2">
+                    <button type="button" class="btn btn-secondary d-flex" data-bind="enable: false">Total Cart Price:</button>
+                </div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-secondary" data-bind="text: formatCurrency(totalCartPrice()), enable: false"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="d-flex justify-content-center mt-3 mb-3 pt-3 pb-3">
+    <div>
+        <a class="nav-link text-dark" onclick="location.href='@Url.Action("Index","Home")'"><button type="button" class="btn btn-secondary mr-2">Back To Shopping</button></a>
+    </div>
+    <div class="ml-2 mt-2" style="margin-left: 0.5em; margin-top: 2em;">
+        <button type="button" class="btn btn-primary ml-2" data-bind="visible: products().length > 0">Go to Payment</button>
+    </div>
+</div>
+@section scripts{ 
+    <script>
+        var myArray = JSON.parse(sessionStorage.getItem('myShop'));
+        this.vm = new cartViewModel(myArray);
+        ko.applyBindings(this.vm);
+    </script>
+}

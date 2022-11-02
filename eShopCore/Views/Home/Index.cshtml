@@ -1,0 +1,194 @@
+﻿@using eShopCore.Models
+@model eShopApp.Controllers.ProductsWithCategories
+
+@{
+    ViewBag.Title = "Index";
+}
+<nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <div style="margin: 0.75vh">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">e-Shop</a>
+            <button class="navbar-toggler" style="margin-right: 0.75vh" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" style="margin-bottom: 0.75vh" id="navbarSupportedContent">
+            <input class="form-control my-2 my-lg-0 mr-sm-2" style="margin-right: 0.5em" id="searchBar" type="search" placeholder="Search" aria-label="Search" data-bind="value: searchQueryString, valueUpdate: 'afterkeydown', enterkey: searchProduct">
+            <button class="btn btn-outline-primary my-2 my-sm-0" id="searchBtn" data-bind="click: searchProduct">Search</button>
+        </div>
+        <div>
+            <div class="btn btn-secondary mb-sm-0 mb-1 mt-sm-0 mt-1" data-bind="text: 'Total Cart Price: ' + formatCurrency(cartViewModel.totalCartPrice())"></div>
+            <button class="btn btn-primary" id="cartModalBtn" type="button" data-toggle="modal" data-target="#cartModal" data-bind="click: modalToggle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</nav>
+<!-- ------------------------------------------------------------------ -->
+<div class="modal fade" id="cardModal" tabindex="-1" role="dialog" aria-labelledby="cardModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cardModalLabel">Your Cart</h5>
+                <button type="button" style="border: 0px; border-radius: 5px" class="close" data-dismiss="modal" data-target="#cartModal" aria-label="Close" data-bind="click: modalToggle">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div data-bind="foreach: cartViewModel.products">
+                    <div class="row border-bottom border-dark pt-2">
+                        <div class="col-5 mt-2">
+                            <h5 data-bind="text: title"></h5>
+                        </div>
+                        <div class="col-4" data-bind="visible: inCart()">
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-secondary" data-bind="click: removeQuantity">-</button>
+                                <input type="text" id="amount" data-bind="value: quantity" />
+                                <button type="button" class="btn btn-secondary" data-bind="click: addQuantity">+</button>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <button type="button" class="btn btn-secondary" data-bind="text: formatCurrency(totalPrice()), enable: false"></button>
+                        </div>
+                        <div class="col-12 mt-1" data-bind="text: descriptionShort"></div>
+                    </div>
+                </div>
+                <div data-bind="visible: cartViewModel.products().length === 0"><h4>Your Cart Is Empty</h4></div>
+                <div class="row mt-2">
+                    @*<div class="col-5">
+                    <button type="button" class="btn btn-secondary d-flex" data-bind="enable: false">Total Cart Price:</button>
+                    </div>
+                    <div class="col-2 offset-4 ">
+                    <button type="button" class="btn btn-secondary" data-bind="text: formatCurrency(cartViewModel.totalCartPrice()), enable: false"></button>
+                    </div>*@
+                    <div class="offset-6 col-5 btn btn-secondary mt-2" style="margin-right: 0.5em;" data-bind="text: 'Total Cart Price: ' + formatCurrency(cartViewModel.totalCartPrice())"></div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                @*<div class="mr-4" style="margin-right: 2.6rem">*@
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" data-target="#cartModal" data-bind="click: modalToggle">Close</button>
+                <button type="button" class="btn btn-primary" data-bind="enable: cartViewModel.products().length > 0" onclick="location.href='@Url.Action("Cart","Home")'">Go to Cart</button>
+                @*</div>*@
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ------------------------------------------------------------------ -->
+<div class="wrapper">
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Filters</h3>
+        </div>
+        <ul class="list-unstyled components mb-0 pb-0">
+            <p>Categories</p>
+        </ul>
+        <ul class="list-unstyled components" data-bind="foreach: categories">
+            <li>
+                <a id="showSmartphones" href="#" data-bind="text: $data, click: $parent.filterByCategory"></a>
+            </li>
+        </ul>
+        <ul class="list-unstyled callTo">
+            <li>
+                <a id="removeFilters" href="#" class="removeFilters" data-bind="click: removeFilters">Remove Filters</a>
+            </li>
+        </ul>
+    </nav>
+    <!-- Page Content  -->
+    <div id="wrapper" class="container" data-bind="visible: dataReadyForView()">
+        <div style="height: 40px; margin-top: 2vh">
+            <button type="button" id="sidebarCollapse" class="btn btn-primary" data-bind="click: sidebarToggle">
+                <span>Toggle Filters</span>
+            </button>
+        </div>
+        <div>
+            <div class="row" data-bind="foreach: products">
+                <div class="col-xl-6 col-lg-12 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-12 col-sm-6" data-bind="text: title"></div>
+                                <!--<h4>Item1</h4>-->
+                                <div class="col-12 col-sm-6"><img class="img-thumbnail" data-bind="attr: {src: imageSource, alt: imgText}" /></div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-2" data-bind="text: descriptionShort"></div>
+                            <!--<p>Small Description</p>-->
+                            <div class="mb-2" data-bind="text: descriptionLong, visible: expanded">
+                                <!--<p>Description </p>-->
+                            </div>
+                            <div class="mb-2 text-success" data-bind="text: manufacturer, visible: expanded">
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-sm-4 mb-4 mb-sm-0">
+                                    <button type="button" class="btn btn-secondary" data-bind="text: formatCurrency(price()), enable: false"></button>
+                                </div>
+                                <div class="col-12 col-sm-4 mb-4 mb-sm-0" data-bind="visible: inCart()">
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-secondary" data-bind="click: removeQuantity">-</button>
+                                        <input type="text" style="max-width: 30px; text-align:center" id="amount" data-bind="value: quantity" />
+                                        <button type="button" class="btn btn-secondary" data-bind="click: addQuantity">+</button>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-4 mb-4 mb-sm-0" data-bind="visible: inCart() == false">
+                                    <button type="button" class="btn btn-success" data-bind="click: $parent.addToCart">Add to Cart</button>
+                                </div>
+                                <div class="col-12 col-sm-4 d-flex justify-content-end">
+                                    <button class="btn btn-primary" type="button" data-bind="click: toggle, visible: expanded() == false">Show More</button>
+                                    <button class="btn btn-primary" type="button" data-bind="click: toggle, visible: expanded">Show Less</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*<div class="pager d-flex justify-content-center mb-2">
+            <div class="btn-group" data-bind="foreach: pageGroup, visible: totalPages() > 1">
+            <button type="button" class="btn btn-secondary" data-bind="text: $data, click: $parent.goToPage">-</button>
+            @*<input type="text" style="max-width: 30px; text-align:center" id="amount" data-bind="value: $root.pageNumber(), disable: true" />
+            <button type="button" class="btn btn-secondary" data-bind="click: next, enable: hasNext">+</button>
+            </div>
+            </div>*@
+            <div class="pager d-flex justify-content-center mb-2">
+                <ul class="pagination" data-bind="foreach: pageGroup, visible: totalPages() > 1">
+                    <li class="page-item active" data-bind="visible: isSelected">
+                        <a class="page-link" href="#" data-bind="text: page, click: $parent.goToPage"> <span class="sr-only" data-bind="visible: isSelected">(current)</span></a>
+                    </li>
+                    <li class="page-item" data-bind="visible: isSelected === false">
+                        <a class="page-link" href="#" data-bind="text: page, click: $parent.goToPage"> <span class="sr-only" data-bind="visible: isSelected">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container" data-bind="visible: products().length === 0">
+            <div class="mr-2">
+                <h2>No Products Found with the term: </h2>
+            </div>
+            <div>
+                <u><em><h2 class="text-muted" data-bind="text: searchQueryString()"></h2></em></u>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        "use strict";
+        var myArray = JSON.parse('@Html.Raw(Json.Serialize(Model.Data))');
+        var myCategories = JSON.parse('@Html.Raw(Json.Serialize(Model.Categories))');
+        var totalPages = JSON.parse('@Html.Raw(Json.Serialize(Model.TotalPages))');
+        var connection = new signalR.HubConnectionBuilder().withUrl('/productHub').build();
+        this.vm = new generalViewModel(myArray, connection);
+        this.vm.activate(myCategories, totalPages);
+        ko.applyBindings(this.vm);
+        connection.start().then(function() {
+            console.log('connected');
+        }).catch(function(err) {
+            return console.error(err.toString());
+        });
+    </script>
+}
+
+

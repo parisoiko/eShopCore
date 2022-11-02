@@ -1,0 +1,75 @@
+﻿@model eShopCore.Models.Product
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Title
+        </dt>
+        <dd class="col-sm-10" data-bind="text: title">
+            @*@Html.DisplayFor(model => model.Title)*@
+        </dd>
+        <dt class="col-sm-2">
+            Description Short
+        </dt>
+        <dd class="col-sm-10" data-bind="text: descriptionShort">
+            @*@Html.DisplayFor(model => model.DescriptionShort)*@
+        </dd>
+        <dt class="col-sm-2">
+            Description Long
+        </dt>
+        <dd class="col-sm-10" data-bind="text: descriptionLong">
+            @*@Html.DisplayFor(model => model.DescriptionLong)*@
+        </dd>
+        <dt class="col-sm-2">
+            Category
+        </dt>
+        <dd class="col-sm-10" data-bind="text: category">
+            @*@Html.DisplayFor(model => model.Category)*@
+        </dd>
+        <dt class="col-sm-2">
+            Price
+        </dt>
+        <dd class="col-sm-10" data-bind="text: formatCurrency(price())">
+            @*@Html.DisplayFor(model => model.Price)*@
+        </dd>
+        <dt class="col-sm-2">
+            Image Source
+        </dt>
+        <dd class="col-sm-10" data-bind="text: imageSource">
+            @*@Html.DisplayFor(model => model.ImageSource)*@
+        </dd>
+        <dt class="col-sm-2">
+            Manufacturer
+        </dt>
+        <dd class="col-sm-10" data-bind="text: manufacturer">
+            @*@Html.DisplayFor(model => model.Manufacturer)*@
+        </dd>
+        <dt class="col-sm-2">
+            Image
+        </dt>
+        <dd>
+            <img class="img-thumbnail" data-bind="attr: {src: imageSource, alt: imgText}" />
+        </dd>
+    </dl>
+    
+    <form data-bind="submit: deleteProduct">
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a data-bind="attr: { 'href': '@Url.Action("Index","Products")'}">Index</a>
+    </form>
+</div>
+@section scripts {
+    <script>
+        var myProduct = JSON.parse('@Html.Raw(Json.Serialize(Model))');
+        this.vm = new productViewModel(myProduct, null, null);
+        ko.applyBindings(this.vm);
+    </script>
+}

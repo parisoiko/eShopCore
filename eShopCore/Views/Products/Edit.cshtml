@@ -1,0 +1,89 @@
+﻿@model eShopCore.Models.Product
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form data-bind="submit: editProduct">
+            @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+            @*<input type="hidden" asp-for="ID" />*@
+            <div class="form-group">
+                <label class="control-label text-primary">Title</label>
+                <input class="form-control" data-bind="value: title, valueUpdate: 'afterkeydown'" required minLength="5" />
+                @*<label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />*@
+                @*<span asp-validation-for="title" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <label class="control-label text-primary">Description Short</label>
+                <input class="form-control" data-bind="value: descriptionShort, valueUpdate: 'afterkeydown'" required minLength="5" />
+                @*<label asp-for="DescriptionShort" class="control-label"></label>
+                <input asp-for="DescriptionShort" class="form-control" />*@
+                @*<span asp-validation-for="descriptionShort" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <label class="control-label text-primary">Description Long</label>
+                <input class="form-control" data-bind="value: descriptionLong, valueUpdate: 'afterkeydown'" required minLength="5" />
+                @*<label asp-for="DescriptionLong" class="control-label"></label>
+                <input asp-for="DescriptionLong" class="form-control" />*@
+                @*<span asp-validation-for="descriptionLong" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <label class="control-label text-primary">Category</label>
+                <input class="form-control" data-bind="value: category, valueUpdate: 'afterkeydown'" required minLength="5" />
+                @*<label asp-for="Category" class="control-label"></label>
+                <input asp-for="Category" class="form-control" />*@
+                @*<span asp-validation-for="category" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <label class="control-label text-primary">Price</label>
+                <input class="form-control" data-bind="value: price, valueUpdate: 'afterkeydown'" required pattern="^\s*-?(\d+(\.\d{1,2})?|\.\d{1,2})\s*$" />
+                @*<label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />*@
+                @*<span asp-validation-for="price" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <label class="control-label text-primary">Image Source</label>
+                <input class="form-control" data-bind="value: imageSource, valueUpdate: 'afterkeydown'" required minLength="5" />
+                @*<label asp-for="ImageSource" class="control-label"></label>
+                <input asp-for="ImageSource" class="form-control" />*@
+                @*<span asp-validation-for="imageSource" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <label class="control-label text-primary">Manufacturer</label>
+                <input class="form-control" data-bind="value: manufacturer, valueUpdate: 'afterkeydown'" required minLength="2" />
+                @*<label asp-for="Manufacturer" class="control-label"></label>
+                <input asp-for="Manufacturer" class="form-control" />*@
+                @*<span asp-validation-for="manufacturer" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        function formatMoney(value) {
+            return Number(value).toFixed(2);
+        }
+        var myProduct = JSON.parse('@Html.Raw(Json.Serialize(Model))');
+        this.vm = new productViewModel(myProduct, null, null);
+        ko.applyBindings(this.vm);
+    </script>
+}

@@ -1,0 +1,226 @@
+[
+  {
+    "category": "Smartphones",
+    "descriptionLong": "The RedNote A9 with a new powerful, high-performance Qualcomm Snapdragon 720G processor. DotDisplay display of 6.67 inches with Full HD+ definition with TUV Rheinland creditibility.",
+    "descriptionShort": "The newest Xiaomi phone of the RedNote series",
+    "imageSource": 'https://c.scdn.gr/images/sku_main_images/034795/34795638/xlarge_20220318121226_xiaomi_redmi_note_11_pro_6gb_64gb_star_blue.jpeg',
+    "price": 269.99,
+    "title": "Xiaomi Redmi Note A9"
+  },
+  {
+    "title": "Xiaomi Poco F3",
+    "descriptionShort": "With 5G and Dual SIM",
+    "descriptionLong": "Equipped with double speakers Dolby Atmos, a powerful Qualcomm Snapdragon 870 5G processor, wifi 6 and charging speeds of 33W.",
+    "category": "Smartphones",
+    "price": 335.99,
+    "imageSource": "https://a.scdn.gr/images/sku_main_images/037343/37343192/xlarge_20220727230951_xiaomi_poco_c40_dual_sim_4gb_64gb_coral_green.jpeg"
+  },
+  {
+    "title": "Huawei P40 Pro 5G Dual SIM",
+    "descriptionShort": "The new high-end Huawei smartphone",
+    "descriptionLong": "With a quadruple Leica Ultra Vision camera, and OLED screen of 6.58 inches and the fast SuperCharge technology of 40W.",
+    "category": "Smartphones",
+    "price": 780.00,
+    "imageSource": "https://c.scdn.gr/images/sku_main_images/022517/22517083/large_20200514104541_huawei_p40_lite_e_64gb_midnight_black.jpeg"
+  },
+  {
+    "title": "Samsung Galaxy A52s 5G Dual SIM",
+    "descriptionShort": "The Awesome Black experience",
+    "descriptionLong": "6.5 inches of wide-screen joy, selfie camera of 32MP and quadruple back-camera of 64MP!",
+    "category": "Smartphones",
+    "price": 295.00,
+    "imageSource": "https://c.scdn.gr/images/sku_main_images/030662/30662995/large_20210830101603_samsung_galaxy_a52s_128gb_awesome_black.jpeg"
+  },
+  {
+    "title": "Realme 8i Dual SIM",
+    "descriptionShort": "The newest Realm phone of the i series",
+    "descriptionLong": "Specs: 6.6 inch 120Hz screen, Octa-core MediaTek Hello processor, Triple back-camera, fast 18W charging.",
+    "category": "Smartphones",
+    "price": 168.66,
+    "imageSource": "https://d.scdn.gr/images/sku_main_images/031694/31694187/large_20211014134219_realme_8i_64gb_space_black.jpeg"
+  },
+  {
+    "title": "TCL 306 Dual SIM",
+    "descriptionShort": "The value for money option by TCL",
+    "descriptionLong": "6.52 inch screen, 5000mAh battery and a 13MP triple back-camera.",
+    "category": "Smartphones",
+    "price": 129.99,
+    "imageSource": "https://a.scdn.gr/images/sku_main_images/034362/34362686/large_20220301161412_tcl_306_3gb_32gb_space_gray.jpeg"
+  },
+  {
+    "title": "Motorola Defy Dual SIM",
+    "descriptionShort": "Motorola is back and this is their newest gear",
+    "descriptionLong": "Equipped with an HD+ 6.5 inch IPS screen, 8-core processor and a 48MP triple back-camera.",
+    "category": "Smartphones",
+    "price": 369.99,
+    "imageSource": "https://b.scdn.gr/images/sku_main_images/030534/30534668/large_20210820095302_motorola_defy_64gb_black.jpeg"
+  },
+  {
+    "title": "OnePlus 7 Pro",
+    "descriptionShort": "Best seller",
+    "descriptionLong": "Crowned and celebrated as the Smartphone of the year.",
+    "category": "Smartphones",
+    "price": 624.19,
+    "imageSource": "https://c.scdn.gr/images/sku_main_images/018627/18627042/large_20200513180229_oneplus_7_pro_8gb_256gb_nebula_blue.jpeg"
+  },
+  {
+    "title": "Apple iPhone 11",
+    "descriptionShort": "The classic",
+    "descriptionLong": "The classic and slick option for mid-end users. Packed with Apple's best.",
+    "category": "Smartphones",
+    "price": 529.99,
+    "imageSource": "https://d.scdn.gr/images/sku_main_images/023128/23128945/large_20200512100331_apple_iphone_11_pro_512gb_midnight_green.jpeg"
+  },
+  {
+    "title": "Apple iPhone 13 Pro Max 5G TV-Monitors",
+    "descriptionShort": "The latest iPhone of the Pro Max series",
+    "descriptionLong": "With 5G mobile internet speed, the new A15 Bionic processor, 12MP cameras, 120Hz screen, loaded with the latest iOS.",
+    "category": "Smartphones",
+    "price": 269.99,
+    "imageSource": "https://d.scdn.gr/images/sku_main_images/031105/31105040/large_20210920152858_apple_iphone_13_mini_128gb_product_red.jpeg"
+  },
+  {
+    "title": "Bosch KGN49XIDP",
+    "descriptionShort": "Deep freeze refridgerator with 438lt NoFrost technology",
+    "descriptionLong": "The Full NoFrost fridge-refridgerator two-in-one with XXL size has space for even more food and stores them even more comfortably and in advanced conditions.",
+    "category": "Fridges",
+    "price": 930.39,
+    "imageSource": "https://c.scdn.gr/images/sku_main_images/022859/22859629/large_20200421135307_bosch_psygeiokatapsyktis_nofrost_inox_a_kgn49xidp.jpeg"
+  },
+  {
+    "title": "Pitsos PKNB56VLEP",
+    "descriptionShort": "Pitsos's stainless fridge",
+    "descriptionLong": "Pitsos's stainless fridge with Full NoFrost deep-freeze technology and ExtraCold shelves.",
+    "category": "Fridges",
+    "price": 200.49,
+    "imageSource": "https://a.scdn.gr/images/sku_main_images/024963/24963926/large_20211103121954_pitsos_pknb56vlep_psygeiokatapsyktis_508lt_nofrost_inox_y193xp70ek.jpeg"
+  },
+  {
+    "title": "Whirlpool WB70I 952 X",
+    "descriptionShort": "With a total capacity of 462 Lt",
+    "descriptionLong": "A total capacity that can easily comply with the needs of a 4 member family. Because it's all about family.",
+    "category": "Fridges",
+    "price": 754.99,
+    "imageSource": "https://c.scdn.gr/images/sku_main_images/029201/29201194/large_20211103132108_whirlpool_whc18_t322_entoichizomenos_psygeiokatapsyktis_250lt_nofrost_y177xp54ek.jpeg"
+  },
+  {
+    "title": "LG GBB569NSAFB",
+    "descriptionShort": "LINEARCooling is here",
+    "descriptionLong": "For excellent mid-freeze conditions for your vegetables and other bio-products.",
+    "category": "Fridges",
+    "price": 1080.99,
+    "imageSource": "https://b.scdn.gr/images/sku_main_images/019316/19316734/large_20190705160941_lg_psygeiokatapsyktis_nofrost_inox_a_gbp31dslzn.jpeg"
+  },
+  {
+    "title": "Sharp SJ-UF088M4W",
+    "descriptionShort": "A compact mini-bar",
+    "descriptionLong": "For those in requiry of space.",
+    "category": "Fridges",
+    "price": 180.09,
+    "imageSource": "https://d.scdn.gr/images/sku_main_images/035241/35241077/large_20220406122110_sharp_sj_bb04dtxlf_psygeiokatapsyktis_268lt_inox_y170xp54xv59_5ek.jpeg"
+  },
+  {
+    "title": "Samsung RB34T671DSA",
+    "descriptionShort": "The fridge of the year",
+    "descriptionLong": "Hailed as the fridge of the year, this fridge combines everything and is decked out with cutting-edge technologies.",
+    "category": "Fridges",
+    "price": 877.39,
+    "imageSource": "https://b.scdn.gr/images/sku_main_images/025052/25052461/large_20201002135148_samsung_psygeiokatapsyktis_nofrost_inox_a_rb38t630esa.jpeg"
+  },
+  {
+    "title": "Hisense RT267D4ARF",
+    "descriptionShort": "The value for money option",
+    "descriptionLong": "With a mixed capacity of 206lt and width of 55cm, it contains 3 adjustable shelves as well as a bottle dispenser.",
+    "category": "Fridges",
+    "price": 235.39,
+    "imageSource": "https://b.scdn.gr/images/sku_main_images/033418/33418301/large_20220113103732_hisense_rb470n4sic_https_www_hisense_es_frigorificos_combi_frigorifico_combi_rb470n4cic_psygeiokatapsyktis_361lt_nofrost_inox_y206xp60xv66_3ek.jpeg"
+  },
+  {
+    "title": "Teka NFL 342 C",
+    "descriptionShort": "TEKA's Full NoFrost build",
+    "descriptionLong": "The users that have tried this product have extensively stated that it is the best option for your vegetables.",
+    "category": "Fridges",
+    "price": 488.89,
+    "imageSource": "https://d.scdn.gr/images/sku_main_images/018958/18958166/large_20190610105319_teka_psygeiokatapsyktis_nofrost_inox_a_nfl_342_c.jpeg"
+  },
+  {
+    "title": "Siemens KG49NAXDP",
+    "descriptionShort": "The widest refridgerator in the market",
+    "descriptionLong": "The Full NoFrost fridge-refridgerator with XL size has space for even more food and stores them even more comfortably and in advanced conditions.",
+    "category": "Fridges",
+    "price": 922.39,
+    "imageSource": "https://c.scdn.gr/images/sku_main_images/025093/25093244/large_20220629124335_siemens_kg49eaica_psygeiokatapsyktis_419lt_y201xp70xv65ek_inox.jpeg"
+  },
+  {
+    "title": "Morris MRS-31083B",
+    "descriptionShort": "The slick design, the perfect fit for the aesthetic of your desire",
+    "descriptionLong": "The classic fridges of the past. The accute detailing and the care to the aesthetic of the product. All here.",
+    "category": "Fridges",
+    "price": 324.50,
+    "imageSource": "https://d.scdn.gr/images/sku_main_images/018383/18383335/20190430144847_morris_monoporto_psygeio_a_mrs_31083b.jpeg"
+  },
+  {
+    "title": "Samsung Smart 43 inch 4K",
+    "descriptionShort": "Samsung's 43 inch smart-TV with UHD LED and HDR technology",
+    "descriptionLong": "You can now enjoy excellent 4K UHD definition with the assistance of the brand new Crystal Processor 4K, incredible detail thanks to HDR10+ support and vibrant contrasts due to the Contrast Enhancer.",
+    "category": "TV-Monitors",
+    "price": 330.29,
+    "imageSource": "https://d.scdn.gr/images/sku_main_images/025572/25572484/large_20210322153649_samsung_ue50tu7092_smart_4k_uhd_50.jpeg"
+  },
+  {
+    "title": "LG Smart 44 inch 4k",
+    "descriptionShort": "Enjoy the ultimate visual experience",
+    "descriptionLong": "With an Active HDR definition for you to enjoy all the content in the world, now in 4K.",
+    "category": "TV-Monitors",
+    "price": 337.79,
+    "imageSource": "https://b.scdn.gr/images/sku_main_images/029012/29012740/20210601151716_lg_43up75003lf_smart_4k_uhd_43.jpeg"
+  },
+  {
+    "title": "TCL 4K UHD LED 50P725 HDR",
+    "descriptionShort": "The value for money option by TCL",
+    "descriptionLong": "TCL's P725 combines 4K HDR technologies alongside Dolby Vision and Motion clarity of a detailed and transitional quality image.",
+    "category": "TV-Monitors",
+    "price": 374.25,
+    "imageSource": "https://a.scdn.gr/images/sku_main_images/031748/31748492/20211018120126_tcl_smart_tileorasi_led_4k_uhd_50p725_hdr_50.jpeg"
+  },
+  {
+    "title": "Sony Smart Television",
+    "descriptionShort": "Sony's best pick",
+    "descriptionLong": "The ultra priced high-end smart TV is here.",
+    "category": "TV-Monitors",
+    "price": 1328.00,
+    "imageSource": "https://b.scdn.gr/images/sku_main_images/028373/28373930/20210419123414_sony_xr_55a80j_smart_4k_uhd_55.jpeg"
+  },
+  {
+    "title": "Hisense Smart UHD QLED",
+    "descriptionShort": "With 4K resolution",
+    "descriptionLong": "And Dolby VIsion, Dolby Atmos, sports and game mode.",
+    "category": "TV-Monitors",
+    "price": 789.00,
+    "imageSource": "https://a.scdn.gr/images/sku_main_images/030875/30875729/20210907114631_hisense_smart_tileorasi_qled_4k_uhd_65a7gq_hdr_65.jpeg"
+  },
+  {
+    "title": "Toshiba Smart Television 4K",
+    "descriptionShort": "4K UHD LED 50U",
+    "descriptionLong": "With Direct LED, DTS/Dolby Digital, Android TV with Google Assistant",
+    "category": "TV-Monitors",
+    "price": 358.99,
+    "imageSource": "https://c.scdn.gr/images/sku_main_images/025294/25294293/20210322153648_toshiba_50ua2063dg_smart_4k_uhd_50.jpeg"
+  },
+  {
+    "title": "F&U Smart TV",
+    "descriptionShort": "32 inch HD",
+    "descriptionLong": "LED technology with slick design and a big lifetime.",
+    "category": "TV-Monitors",
+    "price": 169.99,
+    "imageSource": "https://b.scdn.gr/images/sku_main_images/031279/31279494/20220211130545_f_u_smart_tileorasi_led_hd_ready_fls32226_32.jpeg"
+  },
+  {
+    "title": "Nokia SMART TV",
+    "descriptionShort": "Full HD LED",
+    "descriptionLong": "4300B HDR in 43 inches.",
+    "category": "TV-Monitors",
+    "price": 410.97,
+    "imageSource": "https://a.scdn.gr/images/sku_main_images/032828/32828530/20211206122021_nokia_smart_tileorasi_led_full_hd_4300b_hdr_43.jpeg"
+  }
+]
